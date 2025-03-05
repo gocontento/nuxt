@@ -1,6 +1,6 @@
 {
   "name": "@gocontento/nuxt",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Nuxt module for Contento",
   "repository": {
     "type": "git",
@@ -28,7 +28,8 @@
     "lint": "eslint .",
     "test": "vitest run",
     "test:watch": "vitest watch",
-    "test:types": "vue-tsc --noEmit && cd playground && vue-tsc --noEmit"
+    "test:types": "vue-tsc --noEmit && cd playground && vue-tsc --noEmit",
+    "prettier": "prettier .  --write"
   },
   "dependencies": {
     "@gocontento/client": "^0.0.15",
@@ -44,6 +45,7 @@
     "changelogen": "^0.6.1",
     "eslint": "^9.21.0",
     "nuxt": "^3.15.4",
+    "prettier": "^3.5.3",
     "typescript": "~5.8.2",
     "vitest": "^3.0.7",
     "vue-tsc": "^2.2.8"

@@ -61,6 +61,10 @@ export default defineNuxtModule<ModuleOptions>({
       route: "/api/draft",
       handler: resolver.resolve("./runtime/server/api/draft.get"),
     });
+    addServerHandler({
+      route: "/api/disable-draft",
+      handler: resolver.resolve("./runtime/server/api/disable-draft.get"),
+    });
 
     // Components
     addComponentsDir({

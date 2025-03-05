@@ -28,15 +28,13 @@ export default defineEventHandler(async (event) => {
   // Fetch content by ID from Contento to check if the provided content ID actually exists - here we also switch on
   // preview mode in the API for just this call so we can check if the draft of that content exists too
   const client = await useContentoClient();
-  const content = await client.getContentById(query.id);
-
-  // If the content doesn't exist prevent draft mode from being enabled
-  if (!content) {
+  const content = await client.getContentById(query.id).catch(() => {
+    // If the content doesn't exist prevent draft mode from being enabled
     throw createError({
       statusCode: 401,
       statusMessage: "Invalid content ID",
     });
-  }
+  });
 
   // Set a cookie to flag that the preview mode is on
   setCookie(event, "contento_preview", "true", {

@@ -1,6 +1,6 @@
 ## TODO
 
-- [ ] Finish draft route
+- [x] Finish draft route
 - [ ] Check types are working for things inside this package
 - [ ] Expand useContentoClient to accept a list of options for isPreview etc
 - [ ] Do preview bridge component

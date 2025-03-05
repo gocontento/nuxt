@@ -4,6 +4,7 @@ import {
   createResolver,
   addImportsDir,
   addImports,
+  addServerHandler,
 } from "@nuxt/kit";
 
 // Module options TypeScript interface definition
@@ -53,13 +54,13 @@ export default defineNuxtModule<ModuleOptions>({
 
     // Composables
     addImportsDir(resolver.resolve("./runtime/composables"));
-    //
-    // // Routes
-    // addServerHandler({
-    //   route: '/api/draft',
-    //   handler: resolver.resolve('./runtime/server/api/draft.get'),
-    // });
-    //
+
+    // Routes
+    addServerHandler({
+      route: "/api/draft",
+      handler: resolver.resolve("./runtime/server/api/draft.get"),
+    });
+
     // // Components
     // // From the runtime directory
     // // addComponent({

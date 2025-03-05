@@ -13,4 +13,7 @@ export default defineNuxtConfig({
     siteMainNavId: process.env.NUXT_SITE_MAIN_NAV_ID,
     siteFooterNavId: process.env.NUXT_SITE_FOOTER_NAV_ID,
   },
+  routeRules: {
+    "/home": { redirect: "/" },
+  },
 });

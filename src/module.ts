@@ -5,6 +5,7 @@ import {
   addImportsDir,
   addImports,
   addServerHandler,
+  addComponentsDir,
 } from "@nuxt/kit";
 
 // Module options TypeScript interface definition
@@ -61,12 +62,9 @@ export default defineNuxtModule<ModuleOptions>({
       handler: resolver.resolve("./runtime/server/api/draft.get"),
     });
 
-    // // Components
-    // // From the runtime directory
-    // // addComponent({
-    // //     name: 'MySuperComponent', // name of the component to be used in vue templates
-    // //     export: 'MySuperComponent', // (optional) if the component is a named (rather than default) export
-    // //     filePath: resolver.resolve('runtime/components/MySuperComponent.vue')
-    // // })
+    // Components
+    addComponentsDir({
+      path: resolver.resolve("./runtime/components"),
+    });
   },
 });

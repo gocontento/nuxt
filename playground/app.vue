@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { useContentoClient } from "#imports";
-
 const client = await useContentoClient();
 const { data: homepage } = await useAsyncData("homepage", () =>
   client.getContentBySlug("home", "general_page"),
@@ -9,6 +7,7 @@ const { data: homepage } = await useAsyncData("homepage", () =>
 
 <template>
   <div>
+    <PreviewBridge />
     <h1>
       {{ homepage?.fields.content.blocks[0].fields.title.text }}
     </h1>

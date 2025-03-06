@@ -37,3 +37,35 @@ export default defineNuxtConfig({
 });
 
 ```
+
+## Usage
+
+All composables and components exported by this module are auto imported, so you can just use them.
+
+Here’s a basic example of how you might fetch a single page and hook it up to the Contento live preview:
+
+```vue
+<script setup lang="ts">
+const client = await useContentoClient();
+
+const { data: homepage } = await useAsyncData("homepage", () =>
+  client.getContentBySlug("home", "general_page"),
+);
+
+const { content } = useContentoLivePreview({ content: homepage });
+</script>
+
+<template>
+  <div>
+    <PreviewBridge />
+
+    <h1>
+      {{ content?.fields.title.text }}
+    </h1>
+    
+    <div
+      v-html="content?.fields.body.text"
+    />
+  </div>
+</template>
+```

@@ -37,21 +37,18 @@ export default defineNuxtModule<ModuleOptions>({
       nuxt.options.vite.optimizeDeps.include.push("@gocontento/client");
     }
 
+    nuxt.options.typescript.hoist.push("@gocontento/client");
+
     // Add auto imports
-    const names = ["createContentoClient", "ContentoClient"];
+    const names = ["createContentoClient", "ContentoClient", "ContentData"];
     for (const name of names) {
       addImports({ name, as: name, from: "@gocontento/client" });
     }
-
-    nuxt.options.typescript.hoist.push("@gocontento/client");
 
     // Set the options on the runtimeConfig
     nuxt.options.runtimeConfig.public.contento = {
       ...options,
     };
-
-    // Plugin
-    addPlugin(resolver.resolve("./runtime/plugin"));
 
     // Composables
     addImportsDir(resolver.resolve("./runtime/composables"));

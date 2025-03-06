@@ -5,5 +5,5 @@
 - [x] Expand useContentoClient to accept a list of options for isPreview etc
 - [x] Do the live preview composable
 - [x] Do disable draft route
-- [ ] Check types are working for things inside this package
-- [ ] Do we need the plugin?
+- [x] Check types are working for things inside this package
+- [x] Do we need the plugin?

@@ -1,6 +1,5 @@
 import {
   defineNuxtModule,
-  addPlugin,
   createResolver,
   addImportsDir,
   addImports,

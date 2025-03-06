@@ -17,8 +17,8 @@ const { content } = useContentoLivePreview({ content: homepage });
       </h1>
 
       <div
-        v-html="content?.fields.content.blocks[0].fields.text.text"
         class="mt-6"
+        v-html="content?.fields.content.blocks[0].fields.text.text"
       />
     </template>
   </div>

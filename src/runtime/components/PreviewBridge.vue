@@ -45,10 +45,10 @@ onUnmounted(() => {
 
 <template>
   <NuxtLink
+    v-if="showPreviewToolbar"
     to="/api/disable-draft"
     external
     class="contento-preview-bridge"
-    v-if="showPreviewToolbar"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"

@@ -39,7 +39,24 @@ export default defineNuxtModule<ModuleOptions>({
     nuxt.options.typescript.hoist.push("@gocontento/client");
 
     // Add auto imports
-    const names = ["createContentoClient", "ContentoClient", "ContentData"];
+    const names = [
+      "createContentoClient",
+      "ContentoClient",
+      "ContentAPIResponse",
+      "SimplePaginationResponse",
+      "AssetData",
+      "BlockData",
+      "ContentData",
+      "ContentLinkData",
+      "ContentTypeData",
+      "SelectedDropdownOption",
+      "ListItem",
+      "FieldData",
+      "SeoData",
+      "SeoOpenGraphData",
+      "UserData",
+    ];
+
     for (const name of names) {
       addImports({ name, as: name, from: "@gocontento/client" });
     }

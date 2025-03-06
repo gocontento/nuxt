@@ -2,7 +2,16 @@ import { createContentoClient } from "@gocontento/client";
 import type { ContentoClient } from "@gocontento/client";
 import { useRuntimeConfig } from "#imports";
 
-export const useContentoClient = async (): Promise<ContentoClient> => {
+export interface ClientOptions {
+  isPreview?: boolean;
+  simplePagination?: boolean;
+  language?: string | undefined;
+  fetchOptions?: RequestInit | undefined;
+}
+
+export const useContentoClient = async (
+  options?: ClientOptions,
+): Promise<ContentoClient> => {
   // Get our runtimeConfig options
   const config = useRuntimeConfig().public.contento;
 
@@ -11,5 +20,6 @@ export const useContentoClient = async (): Promise<ContentoClient> => {
     apiKey: config.apiKey,
     apiURL: config.apiUrl,
     siteId: config.siteId,
+    ...options,
   });
 };

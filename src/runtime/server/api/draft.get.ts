@@ -26,8 +26,8 @@ export default defineEventHandler(async (event) => {
   }
 
   // Fetch content by ID from Contento to check if the provided content ID actually exists - here we also switch on
-  // preview mode in the API for just this call so we can check if the draft of that content exists too
-  const client = await useContentoClient();
+  // preview mode in the API for just this call, so we can check if the draft of that content exists too
+  const client = await useContentoClient({ isPreview: true });
   const content = await client.getContentById(query.id).catch(() => {
     // If the content doesn't exist prevent draft mode from being enabled
     throw createError({
@@ -36,7 +36,7 @@ export default defineEventHandler(async (event) => {
     });
   });
 
-  // Set a cookie to flag that the preview mode is on
+  // Set a cookie to flag that the preview mode is on - expires in one hour
   setCookie(event, "contento_preview", "true", {
     secure: true,
     sameSite: "none",

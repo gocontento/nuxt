@@ -1,7 +1,7 @@
 import { defineEventHandler, sendRedirect, setCookie } from "h3";
 
 export default defineEventHandler(async (event) => {
-  // Remove the cookie by setting it to Max-Age=0
+  // Invalidate the cookie by setting it to Max-Age=0 and false for good measure
   setCookie(event, "contento_preview", "false", {
     secure: true,
     sameSite: "none",

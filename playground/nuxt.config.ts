@@ -16,4 +16,9 @@ export default defineNuxtConfig({
   routeRules: {
     "/home": { redirect: "/" },
   },
+  app: {
+    head: {
+      script: [{ src: "https://cdn.tailwindcss.com" }],
+    },
+  },
 });

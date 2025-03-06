@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from "vue";
-import { useCookie, reloadNuxtApp } from "nuxt/app";
+import { useCookie, reloadNuxtApp } from "#imports";
 
 const showPreviewToolbar = ref(false);
 
